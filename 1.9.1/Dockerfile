@@ -1,10 +1,10 @@
 FROM arm32v7/debian:stretch as openssl
 LABEL maintainer="Matthew Vance"
 
-ENV VERSION_OPENSSL=openssl-1.1.1b
-ENV SHA256_OPENSSL=5c557b023230413dfb0756f3137a13e6d726838ccd1430888ad15bfb2b43ea4b
+ENV VERSION_OPENSSL=openssl-1.1.1c
+ENV SHA256_OPENSSL=f6fb3079ad15076154eda9413fed42877d668e7069d9b87396d0804fdb3f4c90
 ENV SOURCE_OPENSSL=https://www.openssl.org/source/
-ENV OPGP_OPENSSL=8657ABB260F056B1E5190839D9C4D26D0E604491
+ENV OPGP_OPENSSL=7953AC1FBC3DC8B3B292393ED5E9E43F7DF9EE8C
 
 WORKDIR /tmp/src
 
@@ -41,7 +41,7 @@ ENV NAME=unbound \
     UNBOUND_VERSION=1.9.1 \
     UNBOUND_SHA256=c3c0bf9b86ccba4ca64f93dd4fe7351308ab54293f297a67de5a8914c1dc59c5 \
     UNBOUND_DOWNLOAD_URL=https://www.unbound.net/downloads/unbound-1.9.1.tar.gz \
-    VERSION=1
+    VERSION=2
 
 ENV SUMMARY="${NAME} is a validating, recursive, and caching DNS resolver." \
     DESCRIPTION="${NAME} is a validating, recursive, and caching DNS resolver."

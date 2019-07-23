@@ -1,4 +1,4 @@
-FROM arm32v7/debian:stretch as openssl
+FROM arm32v7/debian:buster as openssl
 LABEL maintainer="Matthew Vance"
 
 ENV VERSION_OPENSSL=openssl-1.1.1c
@@ -34,7 +34,7 @@ RUN set -e -x && \
         /var/tmp/* \
         /var/lib/apt/lists/*
 
-FROM arm32v7/debian:stretch
+FROM arm32v7/debian:buster
 LABEL maintainer="Matthew Vance"
 
 ENV NAME=unbound \
@@ -66,7 +66,7 @@ RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev make" && \
       bsdmainutils \
       ca-certificates \
       ldnsutils \
-      libevent-2.0 \
+      libevent-2.1-6 \
       libexpat1 && \
     curl -sSL $UNBOUND_DOWNLOAD_URL -o unbound.tar.gz && \
     echo "${UNBOUND_SHA256} *unbound.tar.gz" | sha256sum -c - && \

@@ -72,7 +72,7 @@ docker run --name=unbound-rpi \
 --publish=53:53/udp \
 --restart=unless-stopped \
 --detach=true \
-mvance/unboundrpi:latest
+mvance/unbound-rpi:latest
 ```
 
 This will expose all files in `/my-directory/unbound/` to the container. As an

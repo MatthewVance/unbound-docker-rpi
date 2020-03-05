@@ -6,7 +6,8 @@ Do you want this, but don't have a Pi? Check out the [non-ARM version](https://g
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`1.9.6`, `latest` (*1.9.6/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.9.5)
+- [`1.10.0`, `latest` (*1.10.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.10.0)
+- [`1.9.6`, (*1.9.6/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.9.6)
 - [`1.9.5`, (*1.9.5/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.9.5)
 - [`1.9.4`, (*1.9.4/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.9.4)
 - [`1.9.3`, (*1.9.3/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.9.3)

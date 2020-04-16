@@ -23,7 +23,13 @@ RUN set -e -x && \
     tar xzf openssl.tar.gz && \
     cd $VERSION_OPENSSL && \
     ./Configure linux-x32 && \
-    ./config --prefix=/opt/openssl no-weak-ssl-ciphers no-ssl3 no-shared -DOPENSSL_NO_HEARTBEATS -fstack-protector-strong && \
+    ./config \
+      --prefix=/opt/openssl \
+      no-weak-ssl-ciphers \
+      no-ssl3 \
+      no-shared \
+      -DOPENSSL_NO_HEARTBEATS \
+      -fstack-protector-strong && \
     make depend && \
     make && \
     make install_sw && \

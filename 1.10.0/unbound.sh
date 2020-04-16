@@ -38,6 +38,7 @@ server:
     hide-version: yes
     hide-identity: yes
     identity: "DNS"
+    incoming-num-tcp: 10
     harden-algo-downgrade: yes
     harden-short-bufsize: yes
     harden-large-queries: yes

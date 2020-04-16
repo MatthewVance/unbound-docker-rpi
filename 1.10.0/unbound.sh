@@ -54,6 +54,7 @@ server:
     rrset-roundrobin: yes
     minimal-responses: yes
     chroot: "/opt/unbound/etc/unbound"
+    deny-any: yes
     directory: "/opt/unbound/etc/unbound"
     auto-trust-anchor-file: "var/root.key"
     num-queries-per-thread: 4096

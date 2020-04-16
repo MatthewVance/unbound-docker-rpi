@@ -25,6 +25,7 @@ RUN set -e -x && \
     ./Configure linux-x32 && \
     ./config \
       --prefix=/opt/openssl \
+      --openssldir=/opt/openssl \
       no-weak-ssl-ciphers \
       no-ssl3 \
       no-shared \

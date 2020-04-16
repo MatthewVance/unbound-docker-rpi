@@ -26,7 +26,7 @@ Unbound is a validating, recursive, and caching DNS resolver.
 Run this container with the following command:
 
 ```console
-docker run --name unbound-rpi -d -p 53:53/udp \
+docker run --name unbound-rpi -d -p 53:53/udp -p 53:53/tcp \
 --restart=always mvance/unbound-rpi:latest
 ```
 
@@ -56,7 +56,7 @@ Once the file has your entries in it, mount your version of the file as a volume
 when starting the container:
 
 ```console
-docker run --name unbound-rpi -d -p 53:53/udp -v \
+docker run --name unbound-rpi -d -p 53:53/udp -p 53:53/tcp -v \
 $(pwd)/a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro \
 --restart=always mvance/unbound-rpi:latest
 ```

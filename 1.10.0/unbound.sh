@@ -1,4 +1,8 @@
-ry -le $(($reserved * 2)) ]; then
+#!/bin/bash
+
+reserved=12582912
+availableMemory=$((1024 * $( (grep MemAvailable /proc/meminfo || grep MemTotal /proc/meminfo) | sed 's/[^0-9]//g' ) ))
+if [ $availableMemory -le $(($reserved * 2)) ]; then
     echo "Not enough memory" >&2
     exit 1
 fi

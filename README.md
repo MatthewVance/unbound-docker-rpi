@@ -63,6 +63,38 @@ docker run --name unbound-rpi -d -p 53:53/udp -p 53:53/tcp -v \
 $(pwd)/a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro \
 --restart=always mvance/unbound-rpi:latest
 ```
+
+### Override default forward
+
+By default, forwarders are configured to use Cloudflare DNS. You can retrieve the configuration in the [1.12.0/forward-records.conf](1.12.0/forward-records.conf) file.
+
+You can create your own configuration file and override the one placed in `/opt/unbound/etc/unbound/forward-records.conf` in the container.
+
+Example `forward-records.conf`:
+```
+forward-zone:
+  # Forward all queries (except those in cache and local zone) to
+  # upstream recursive servers
+  name: "."
+
+  # my DNS
+  forward-addr: 192.168.0.1@53#home.local
+```
+
+Once the file has your entries in it, mount your version of the file as a volume
+when starting the container:
+
+```console
+docker run \
+--name=my-unbound \
+--volume=$(pwd)/forward-records.conf:/opt/unbound/etc/unbound/forward-records.conf:ro \
+--publish=53:53/udp \
+--publish=53:53/tcp \
+--restart=unless-stopped \
+--detach=true \
+mvance/unbound-rpi:latest
+```
+
 ### Use a customized Unbound configuration
 
 Instead of using this image's default configuration for Unbound, you may supply

@@ -64,6 +64,30 @@ $(pwd)/a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro \
 --restart=always mvance/unbound-rpi:latest
 ```
 
+#### SRV records
+
+The `srv-records.conf` file should use the following format:
+
+```
+# SRV records
+# _service._proto.name. | TTL | class | SRV | priority | weight | port | target.
+_etcd-server-ssl._tcp.domain.local.  86400 IN    SRV 0        10     2380 etcd-0.domain.local.
+_etcd-server-ssl._tcp.domain.local.  86400 IN    SRV 0        10     2380 etcd-1.domain.local.
+_etcd-server-ssl._tcp.domain.local.  86400 IN    SRV 0        10     2380 etcd-2.domain.local.
+```
+
+Run a container that use this SRV config file:
+```console
+docker run \
+--name my-unbound \
+--volume=$(pwd)/srv-records.conf:/opt/unbound/etc/unbound/srv-records.conf:ro \
+--publish=53:53/udp \
+--publish=53:53/tcp \
+--restart=unless-stopped \
+--detach=true \
+mvance/unbound:latest
+```
+
 ### Override default forward
 
 By default, forwarders are configured to use Cloudflare DNS. You can retrieve the configuration in the [1.12.0/forward-records.conf](1.12.0/forward-records.conf) file.

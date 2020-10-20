@@ -179,7 +179,7 @@ server:
     # Perform additional queries for infrastructure data to harden the referral
     # path. Validates the replies if trust anchors are configured and the zones
     # are signed. This enforces DNSSEC validation on nameserver NS sets and the
-    # nameserver addresses that are encountered on the referral path to the 
+    # nameserver addresses that are encountered on the referral path to the
     # answer. Experimental option.
     harden-referral-path: no
 

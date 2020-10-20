@@ -344,8 +344,8 @@ server:
         # Cloudflare
         forward-addr: 1.1.1.1@853#cloudflare-dns.com
         forward-addr: 1.0.0.1@853#cloudflare-dns.com
-        #forward-addr: 2606:4700:4700::1111@853#cloudflare-dns.com
-        #forward-addr: 2606:4700:4700::1001@853#cloudflare-dns.com
+        # forward-addr: 2606:4700:4700::1111@853#cloudflare-dns.com
+        # forward-addr: 2606:4700:4700::1001@853#cloudflare-dns.com
 
         # CleanBrowsing
         # forward-addr: 185.228.168.9@853#security-filter-dns.cleanbrowsing.org

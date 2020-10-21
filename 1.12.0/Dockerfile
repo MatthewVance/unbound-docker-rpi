@@ -1,5 +1,4 @@
 FROM debian:buster as openssl
-LABEL maintainer="Matthew Vance"
 
 ENV VERSION_OPENSSL=openssl-1.1.1h
 ENV SHA256_OPENSSL=5c9ca8774bd7b03e5784f26ae9e9e6d749c9da2438545077e6b3d755a06595d9
@@ -42,7 +41,6 @@ RUN set -e -x && \
         /var/lib/apt/lists/*
 
 FROM debian:buster as unbound
-LABEL maintainer="Matthew Vance"
 
 ENV NAME=unbound \
     UNBOUND_VERSION=1.12.0 \
@@ -92,19 +90,6 @@ RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make
 
 
 FROM debian:buster
-LABEL maintainer="Matthew Vance"
-
-ENV NAME=unbound \
-    VERSION=1.2 \
-    SUMMARY="${NAME} is a validating, recursive, and caching DNS resolver." \
-    DESCRIPTION="${NAME} is a validating, recursive, and caching DNS resolver."
-
-LABEL summary="${SUMMARY}" \
-      description="${DESCRIPTION}" \
-      io.k8s.description="${DESCRIPTION}" \
-      io.k8s.display-name="Unbound ${UNBOUND_VERSION}" \
-      name="mvance/${NAME}" \
-      maintainer="Matthew Vance"
 
 WORKDIR /tmp/src
 
@@ -138,6 +123,14 @@ RUN chmod +x /unbound.sh
 WORKDIR /opt/unbound/
 
 ENV PATH /opt/unbound/sbin:"$PATH"
+
+LABEL org.opencontainers.image.version=${UNBOUND_VERSION} \
+      org.opencontainers.image.title="mvance/unbound" \
+      org.opencontainers.image.description="a validating, recursive, and caching DNS resolver" \
+      org.opencontainers.image.url="https://github.com/MatthewVance/unbound-docker" \
+      org.opencontainers.image.vendor="Matthew Vance" \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.source="https://github.com/MatthewVance/unbound-docker"
 
 EXPOSE 53/tcp
 EXPOSE 53/udp

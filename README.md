@@ -6,7 +6,8 @@ Do you want this, but don't have a Pi? Check out the [non-ARM version](https://g
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`1.12.0`, `latest` (*1.12.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.12.0)
+- [`1.13.0`, `latest` (*1.13.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.13.0)
+- [`1.12.0`, (*1.12.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.12.0)
 - [`1.11.0`, (*1.11.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.11.0)
 - [`1.10.1`, (*1.10.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.10.0)
 - [`1.10.0`, (*1.10.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.10.0)
@@ -29,8 +30,13 @@ Unbound is a validating, recursive, and caching DNS resolver.
 Run this container with the following command:
 
 ```console
-docker run --name unbound-rpi -d -p 53:53/udp -p 53:53/tcp \
---restart=always mvance/unbound-rpi:latest
+docker run \
+--name=unbound-rpi \
+--publish=53:53/udp \
+--publish=53:53/tcp \
+--restart=unless-stopped \
+--detach=true \
+mvance/unbound-rpi:latest
 ```
 
 ### Serve Custom DNS Records for Local Network
@@ -59,9 +65,14 @@ Once the file has your entries in it, mount your version of the file as a volume
 when starting the container:
 
 ```console
-docker run --name unbound-rpi -d -p 53:53/udp -p 53:53/tcp -v \
-$(pwd)/a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro \
---restart=always mvance/unbound-rpi:latest
+docker run \
+--name=unbound-rpi \
+--volume=$(pwd)/a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro \
+--publish=53:53/udp \
+--publish=53:53/tcp \
+--restart=unless-stopped \
+--detach=true \
+mvance/unbound-rpi:latest
 ```
 
 #### SRV records
@@ -85,7 +96,7 @@ docker run \
 --publish=53:53/tcp \
 --restart=unless-stopped \
 --detach=true \
-mvance/unbound:latest
+mvance/unbound-rpi:latest
 ```
 
 ### Override default forward

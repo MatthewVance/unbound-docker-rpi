@@ -19,6 +19,9 @@ Unbound is a validating, recursive, and caching DNS resolver.
 
 ### Standard usage
 
+Pull this container:
+`docker pull mvance\unbound-rpi:latest`
+
 Run this container with the following command:
 
 ```console

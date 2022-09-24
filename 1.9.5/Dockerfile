@@ -25,7 +25,7 @@ RUN set -e -x && \
     ./Configure linux-x32 && \
     ./config --prefix=/opt/openssl no-weak-ssl-ciphers no-ssl3 no-shared -DOPENSSL_NO_HEARTBEATS -fstack-protector-strong && \
     make depend && \
-    make && \
+    nproc | xargs -I % make -j% && \
     make install_sw && \
     apt-get purge -y --auto-remove \
       $build_deps && \

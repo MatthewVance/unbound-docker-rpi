@@ -43,7 +43,7 @@ FROM debian:bullseye as unbound
 
 ENV NAME=unbound \
     UNBOUND_VERSION=1.16.1 \
-    UNBOUND_SHA256=6701534c938eb019626601191edc6d012fc534c09d2418d5b92827db0cbe48a5 \
+    UNBOUND_SHA256=2fe4762abccd564a0738d5d502f57ead273e681e92d50d7fba32d11103174e9a \
     UNBOUND_DOWNLOAD_URL=https://nlnetlabs.nl/downloads/unbound/unbound-1.16.1.tar.gz
 
 WORKDIR /tmp/src
@@ -65,7 +65,7 @@ RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make
     rm -f unbound.tar.gz && \
     cd unbound-1.16.1 && \
     groupadd _unbound && \
-    useradd -g _unbound -s /etc -d /dev/null _unbound && \
+    useradd -g _unbound -s /dev/null -d /etc _unbound && \
     ./configure \
         --disable-dependency-tracking \
         --prefix=/opt/unbound \
@@ -102,7 +102,7 @@ RUN set -x && \
       libnghttp2-14 \
       libexpat1 && \
     groupadd _unbound && \
-    useradd -g _unbound -s /etc -d /dev/null _unbound && \
+    useradd -g _unbound -s /dev/null -d /etc _unbound && \
     apt-get purge -y --auto-remove \
       $build_deps && \
     rm -rf \

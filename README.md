@@ -201,6 +201,8 @@ Documentation for Unbound is available on the [project's website](https://unboun
 If you have any problems with or questions about this image, please contact me
 through a [GitHub issue](https://github.com/MatthewVance/unbound-docker-rpi/issues).
 
+*Note: IPv6 is not supported for this image.*
+
 ## Contributing
 
 You are invited to contribute new features, fixes, or updates, large or small. I

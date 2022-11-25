@@ -196,6 +196,12 @@ Documentation for this image is stored right here in the [`README.md`](https://g
 
 Documentation for Unbound is available on the [project's website](https://unbound.net/).
 
+# Notes
+
+## Logging
+
+Logging is very limited in the default config created by unbound.sh. If using the default config as an example starting point, a placeholder for a logfile (`unbound.log`) has been provided with the correct file ownership at the path `/opt/unbound/etc/unbound/` in case you want to increase logging and send to a file.
+
 ## Issues
 
 If you have any problems with or questions about this image, please contact me

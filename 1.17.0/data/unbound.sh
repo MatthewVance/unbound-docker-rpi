@@ -98,10 +98,18 @@ server:
     # Do not print log lines that say why queries return SERVFAIL to clients
     log-servfail: no
 
-    # Further limit logging
+    # If you want to log to a file, use:
+    # logfile: /opt/unbound/etc/unbound/unbound.log
+    # Set log location (using /dev/null further limits logging)
     logfile: /dev/null
 
-    # Only log errors
+    # Set logging level
+    # Level 0: No verbosity, only errors.
+    # Level 1: Gives operational information.
+    # Level 2: Gives detailed operational information including short information per query.
+    # Level 3: Gives query level information, output per query.
+    # Level 4:  Gives algorithm level information.
+    # Level 5: Logs client identification for cache misses.
     verbosity: 0
 
     ###########################################################################
@@ -365,6 +373,7 @@ cp -a /dev/random /dev/urandom /dev/null /opt/unbound/etc/unbound/dev/
 
 mkdir -p -m 700 /opt/unbound/etc/unbound/var && \
 chown _unbound:_unbound /opt/unbound/etc/unbound/var && \
+chown _unbound:_unbound /opt/unbound/etc/unbound/unbound.log && \
 /opt/unbound/sbin/unbound-anchor -a /opt/unbound/etc/unbound/var/root.key
 
 exec /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf

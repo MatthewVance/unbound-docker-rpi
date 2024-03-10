@@ -6,7 +6,12 @@ Do you want this, but don't have a Pi? Check out the [non-ARM version](https://g
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`1.17.0`, `latest` (*1.17.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.17.0)
+- [`1.19.2`, `latest` (*1.19.2/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.19.2)
+- [`1.19.1`, (*1.19.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.19.1)
+- [`1.19.0`, (*1.19.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.19.0)
+- [`1.18.0`, (*1.18.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.18.0)
+- [`1.17.1`, (*1.17.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.17.1)
+- [`1.17.0`, (*1.17.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.17.0)
 - [`1.16.3`, (*1.16.3/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.16.3)
 - [`1.16.2`, (*1.16.2/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.16.2)
 - [`1.16.1`, (*1.16.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.16.1)

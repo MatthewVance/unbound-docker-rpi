@@ -48,7 +48,7 @@ RUN set -e -x && \
         /var/tmp/* \
         /var/lib/apt/lists/*
 
-FROM debian:bookworm as unbound
+FROM debian:bullseye as unbound
 
 ENV NAME=unbound \
     UNBOUND_VERSION=1.19.1 \
@@ -96,7 +96,7 @@ RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make
         /var/tmp/* \
         /var/lib/apt/lists/*
 
-FROM debian:bookworm
+FROM debian:bullseye
 
 WORKDIR /tmp/src
 

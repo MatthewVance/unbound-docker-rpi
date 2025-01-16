@@ -5,7 +5,8 @@ Run Unbound with latest version of OpenSSL on Raspberry Pi with Docker.
 Do you want this, but don't have a Pi? Check out the [non-ARM version](https://github.com/MatthewVance/unbound-docker).
 
 ## Supported tags and respective `Dockerfile` links
-- [`1.20.0`, `latest` (*1.20.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.20.0)
+- [`1.21.0`, `latest` (*1.21.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.21.0)
+- [`1.20.0`, (*1.20.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.20.0)
 - [`1.19.3`, (*1.19.3/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.19.3)
 - [`1.19.2`, (*1.19.2/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.19.2)
 - [`1.19.1`, (*1.19.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker-rpi/tree/master/1.19.1)
